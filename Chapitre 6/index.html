@@ -89,7 +89,7 @@
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <style> .reveal {  font-size: 180%; line-height: 150%; } .reveal p {font-size:80%; margin:0px;} .reveal code {font-size:120%}</style>
-# Chapitre 5. Github, vscode et Lit
+# Chapitre 6. Github, vscode et Vue
 </div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -143,7 +143,7 @@ Il existe de nombreuses extensions vsCode utile en html/css. Par exemple, une po
 </div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# [Lit](https://lit.dev/docs/getting-started/)
+# [Vue](https://vuejs.org/guide/quick-start.html)
 Librairie html, css, javascript
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -161,7 +161,7 @@ Malheureusement, il faut utiliser du javascript pour se faire. Pas d'inquiétude
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Pour pouvoir prévisualiser votre site : 
-Une simple extension ne suffit pas, car il faut d'abord que Lit compile votre javascript pour construire un html et css direct. Pour avoir une simple prévisualisation, il suffit d'écrire dans le terminal, dans votre répertoire : `npm run serve`. Puis, il faudra ouvrir la page `localhost` dans un navigateur.
+Une simple extension ne suffit pas, car il faut d'abord que Vue compile votre javascript pour construire un html et css direct. Pour avoir une simple prévisualisation, il suffit d'écrire dans le terminal, dans votre répertoire : `npm run dev`. Puis, il faudra ouvrir la page `localhost` dans un navigateur en cliquant sur le lien proposé par le terminal.
 </div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -297,6 +297,10 @@ Pensez à ne pas lier de css inutile → par exemple, `index.html` n'a pas besoi
 				{ icon: '<i class="fa fa-pen"></i>',
 				title: 'Toggle notes canvas (C)',
 				action: 'RevealChalkboard.toggleNotesCanvas();'
+				},
+				{ icon: '<i class="fa fa-home" onclick = "window.location.href = \'../home.html\';"></i>',
+				title: 'TPage d\'acceuil',
+				action: ''
 				},
 			]
 		},
