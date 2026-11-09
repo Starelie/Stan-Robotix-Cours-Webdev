@@ -147,16 +147,98 @@ Il existe de nombreuses extensions vsCode utile en html/css. Par exemple, une po
 Librairie html, css, javascript
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+## Fonctionnement de Vue :
 
-Nous voulons construire un site statique. Mais, il est tout de même embêtant de devoir réécrire et copier les mêmes éléments de pages en pages (exemple, recopier le menu sur chaque page). Pour éviter, on utilise une librairie qui nous permet de construire des composants qu'on peut ensuite importer dans une page html.
-<img src="assets/Pasted image 20240624173700.png" alt="" style="object-fit: scale-down">
+<img src="assets/Explication Vue.png" alt="" style="height: 90%; object-fit: fill">
 
-→ composant `my-element` importé dans index.html
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-Malheureusement, il faut utiliser du javascript pour se faire. Pas d'inquiétude, vous n'aurez pas à apprendre tout un langage de programmation. Un composant aura toujours cette architecture : 
-<img src="assets/Pasted image 20240624174043.png" alt="" style="object-fit: scale-down">
+Nous voulons construire un site statique. Mais, il est tout de même embêtant de devoir réécrire et copier les mêmes éléments de pages en pages (exemple, recopier le menu sur chaque page). Pour éviter, on utilise une librairie qui nous permet de construire des composants qu'on peut ensuite importer dans une page html.
+```html
+<script setup>
+defineProps({
+  msg: {
+    type: String,
+    required: true,
+  },
+})
+__SCRIPT_END__
+
+<template>
+  <div class="greetings">
+    <h1 class="green">Bienvenue</h1>
+    <h3>
+      {{ msg }}
+    </h3>
+  </div>
+</template>
+
+<style scoped lang="scss">
+	// Inclure ici le css/scss spécifique à ce composant
+</style>
+``````
+→ exemple de composant `Welcome` importé dans home.vue
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+Par la suite, dans home.vue:
+
+```html
+<script setup>
+import BaseHeader from './components/BaseHeader.vue'
+import Welcome from './components/Welcome.vue'
+import BaseFooter from './components/BaseFooter.vue'
+__SCRIPT_END__
+
+<template>
+  <header>
+		<BaseHeader />
+  </header>
+  <main>
+		<h1>Ceci est la page principale de mon site web</h1>
+    <Welcome msg="Bravo! Tu as créé une page"/>
+  </main>
+	<footer>
+		<BaseFooter />
+	</footer>
+</template>
+
+<style scoped lang="scss">
+	// Inclure ici le css/scss spécifique à cette page
+</style>
+``````
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+Pour les pages `index.html` et `nom_de_page.js` elle seront toutes similaires à :
+
+`index.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titre de la page</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js">__SCRIPT_END__
+  </body>
+</html>
+```
+
+`nom_de_page.js`:
+
+```javascript
+import './assets/main.css'
+
+import { createApp } from 'vue'
+import Home from './home.vue'
+
+createApp(Home).mount('#app')
+``````
 </div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
